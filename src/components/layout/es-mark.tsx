@@ -1,58 +1,11 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Original "ES" typographic mark with a discreet circuit-connection motif:
- * a rounded purple tile, the owner's initials, and two circuit nodes that
- * suggest evaluation checkpoints. Used in the header, footer, and print
- * surfaces. The favicon variant lives in src/app/icon.svg.
+ * Icon primitives shared across the site. The former "ES" typographic tile
+ * that lived here was replaced by the portrait avatar mark
+ * (src/components/layout/portrait-mark.tsx) as the header/footer identity
+ * icon; the favicon equivalents are src/app/icon.png and src/app/apple-icon.png.
  */
-export function EsMark({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 44 44"
-      role="img"
-      aria-label="Etalyah Simpson monogram"
-      className={cn("h-9 w-9", className)}
-    >
-      <rect x="1" y="1" width="42" height="42" rx="11" fill="var(--primary)" />
-      <rect
-        x="1"
-        y="1"
-        width="42"
-        height="42"
-        rx="11"
-        fill="none"
-        stroke="var(--on-primary)"
-        strokeOpacity="0.16"
-        strokeWidth="1.5"
-      />
-      <text
-        x="21.4"
-        y="22.4"
-        textAnchor="middle"
-        dominantBaseline="central"
-        fill="var(--on-primary)"
-        fontSize="15.5"
-        fontWeight="800"
-        letterSpacing="0.5"
-        style={{ fontFamily: "var(--font-sans), ui-sans-serif, system-ui, sans-serif" }}
-      >
-        ES
-      </text>
-      {/* circuit motif: a linked checkpoint, fully inside the tile */}
-      <path
-        d="M14 33.5h5a3 3 0 0 1 3 3"
-        fill="none"
-        stroke="var(--on-primary)"
-        strokeOpacity="0.55"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-      />
-      <circle cx="14" cy="33.5" r="1.5" fill="var(--on-primary)" fillOpacity="0.9" />
-      <circle cx="22" cy="37.6" r="1.4" fill="none" stroke="var(--on-primary)" strokeOpacity="0.55" strokeWidth="1.2" />
-    </svg>
-  );
-}
 
 /** GitHub mark (standard octocat silhouette path). */
 export function GitHubIcon({ className }: { className?: string }) {

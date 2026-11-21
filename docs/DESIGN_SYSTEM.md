@@ -89,15 +89,21 @@ use (4.5:1 for body text, 3:1 for large text and controls).
 
 ## Portraits
 
-Two owner-approved photographs, used exactly once each:
+Two owner-approved photographs, used exactly once each at full size, plus one
+square avatar derived from the official portrait (crop and resize only, no
+retouching) that serves as the small identity mark:
 
 | Asset | Source | Placement | Treatment |
 | --- | --- | --- | --- |
 | `/images/etalyah-hero.webp` | `Portfolio-official(img).jpeg` (972x1323), left edge cropped to remove background distractions | Homepage hero, right column | Lavender frame, purple keyline, `aspect-[4/5]`, `object-cover`, `object-position: center 30%`, priority load |
 | `/images/etalyah-about.webp` | `Portfolio-Smiley(img).jpeg` (573x756), uncropped | Homepage About (left column) and `/about/` | White card frame, `aspect-[3/4]`, `object-position: center 28%`, lazy load |
+| `/images/etalyah-avatar.webp` | Face-centered square crop of `Portfolio-official(img).jpeg` (full width, eyes near mid-frame, headroom above the hair), 320x320 | Header and footer identity mark beside the site name (32-36px) | Purple keyline, `rounded-[26%]`, `object-cover`, no animation |
 
-Both files are re-encoded WebP with all EXIF/device metadata stripped. There is no
-carousel, slideshow, lightbox, or third portrait anywhere on the site.
+All files are re-encoded with EXIF/device metadata stripped. The browser
+favicon set (`src/app/icon.png` 32x32 and `src/app/apple-icon.png` 180x180) is
+generated from the same avatar crop, so the tab icon, home-screen icon, and
+header mark show the same face. There is no carousel, slideshow, lightbox, or
+additional photograph anywhere on the site.
 
 ## Motion
 

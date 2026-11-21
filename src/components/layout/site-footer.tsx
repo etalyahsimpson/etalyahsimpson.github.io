@@ -2,7 +2,8 @@ import Link from "next/link";
 import { NAV_ITEMS, EXTERNAL_LINKS, SITE } from "@/content/site";
 import { profile } from "@/content/profile";
 import { projects } from "@/content/projects";
-import { EsMark, GitHubIcon } from "@/components/layout/es-mark";
+import { GitHubIcon } from "@/components/layout/es-mark";
+import { PortraitMark } from "@/components/layout/portrait-mark";
 import { Container } from "@/components/layout/container";
 
 /** Global footer: identity, sitemap, professional evidence links, email. */
@@ -13,7 +14,7 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
           <div>
             <div className="flex items-center gap-2.5">
-              <EsMark className="h-8 w-8" />
+              <PortraitMark className="h-8 w-8" />
               <span className="text-[0.9375rem] font-extrabold text-ink">
                 Etalyah <span className="text-primary">Simpson</span>
               </span>

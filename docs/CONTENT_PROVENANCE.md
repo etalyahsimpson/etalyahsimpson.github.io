@@ -14,7 +14,10 @@
    - VendorLens AI: https://github.com/etalyahsimpson/vendorlens-ai
    - BECBarrier: https://github.com/etalyahsimpson/becbarrier
 3. **Photographs** are the two owner-authorized portraits described in
-   `docs/DESIGN_SYSTEM.md`. No other photos of people exist on the site.
+   `docs/DESIGN_SYSTEM.md`, plus one square avatar derived from the approved
+   official portrait (crop and resize only, no retouching) that serves as the
+   header/footer identity mark and the source of the favicon set. No other
+   photos of people exist on the site.
 
 ## Verification of project claims
 

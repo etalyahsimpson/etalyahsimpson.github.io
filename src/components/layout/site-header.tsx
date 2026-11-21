@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { NAV_ITEMS, EXTERNAL_LINKS } from "@/content/site";
-import { EsMark, GitHubIcon } from "@/components/layout/es-mark";
+import { GitHubIcon } from "@/components/layout/es-mark";
+import { PortraitMark } from "@/components/layout/portrait-mark";
 import { Container } from "@/components/layout/container";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { cn } from "@/lib/utils";
@@ -68,7 +69,7 @@ export function SiteHeader() {
           className="flex min-h-11 items-center gap-2.5 rounded-lg font-extrabold tracking-[-0.01em] text-ink"
           aria-label="Etalyah Simpson, home"
         >
-          <EsMark />
+          <PortraitMark />
           <span className="hidden text-[0.9375rem] sm:block">
             Etalyah <span className="text-primary">Simpson</span>
           </span>

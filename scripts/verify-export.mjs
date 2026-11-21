@@ -175,9 +175,16 @@ for (const preview of PREVIEWS) {
   }
 }
 
-const PORTRAITS = ["images/etalyah-hero.webp", "images/etalyah-about.webp"];
+const PORTRAITS = ["images/etalyah-hero.webp", "images/etalyah-about.webp", "images/etalyah-avatar.webp"];
 for (const portrait of PORTRAITS) {
   if (!(await exists(path.join(OUT, portrait)))) fail(`portrait missing: out/${portrait}`);
+}
+
+// Browser identity icons (portrait-derived PNG set emitted by the App Router
+// file conventions): favicon 32x32 and apple-touch-icon 180x180.
+const FAVICON_ASSETS = ["icon.png", "apple-icon.png"];
+for (const icon of FAVICON_ASSETS) {
+  if (!(await exists(path.join(OUT, icon)))) fail(`favicon asset missing: out/${icon}`);
 }
 
 // ---------------------------------------------------------------- per-HTML checks
@@ -351,10 +358,14 @@ for (const [route, expected] of Object.entries(EXPECTED)) {
   stats.metadataVerified += 1;
 }
 
-// portrait placement: hero on index, about on index + /about/
+// portrait placement: hero on index, about on index + /about/, avatar in the
+// shared header on every route (checked on the homepage)
 const indexHtml = await fs.readFile(path.join(OUT, "index.html"), "utf8");
 if (!indexHtml.includes("/images/etalyah-hero.webp")) fail("homepage does not reference the approved hero portrait");
 if (!indexHtml.includes("/images/etalyah-about.webp")) fail("homepage does not reference the approved About portrait");
+if (!indexHtml.includes("/images/etalyah-avatar.webp")) fail("homepage header does not reference the approved avatar mark");
+if (!/<link[^>]+rel="icon"/.test(indexHtml)) fail("homepage missing the favicon link tag");
+if (!/<link[^>]+rel="apple-touch-icon"/.test(indexHtml)) fail("homepage missing the apple-touch-icon link tag");
 const aboutHtml = await fs.readFile(path.join(OUT, "about/index.html"), "utf8");
 if (!aboutHtml.includes("/images/etalyah-about.webp")) fail("/about/ does not reference the approved About portrait");
 

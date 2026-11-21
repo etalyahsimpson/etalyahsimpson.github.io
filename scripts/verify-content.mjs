@@ -11,7 +11,8 @@
  *  5. Every route in the site route map has a matching app-router page.
  *  6. Project registry slugs are unique and their brand/preview/screenshot
  *     assets exist.
- *  7. Portrait registry files exist and no other personal photos are present.
+ *  7. Portrait registry files exist (two approved photographs plus the
+ *     derived square avatar) and no other personal photos are present.
  *
  * Exit code 0 = all gates passed. A JSON report is written to
  * scripts/verify-content-report.json (non-secret).
@@ -203,9 +204,13 @@ for (const slug of slugs) {
 }
 
 // ---------------------------------------------------------------- portraits
+// Authorized personal-photo inventory: the two approved source portraits plus
+// the square avatar DERIVED from the approved official portrait (crop and
+// resize only) that serves as the header/footer identity mark. Nothing else
+// may ever appear under public/images/.
 const portraitFiles = [...publicFiles].filter((f) => f.startsWith("/images/"));
 report.portraits = portraitFiles;
-const expected = ["/images/etalyah-hero.webp", "/images/etalyah-about.webp"];
+const expected = ["/images/etalyah-hero.webp", "/images/etalyah-about.webp", "/images/etalyah-avatar.webp"];
 for (const file of expected) {
   if (!publicFiles.has(file)) failures.push(`approved portrait missing: ${file}`);
 }
@@ -213,7 +218,7 @@ const allowedPeoplePhotos = new Set(expected);
 for (const file of portraitFiles) {
   if (!allowedPeoplePhotos.has(file)) {
     report.extraPeoplePhotos.push(file);
-    failures.push(`unexpected file under public/images (only the two approved portraits are allowed): ${file}`);
+    failures.push(`unexpected file under public/images (only the two approved portraits and the derived avatar are allowed): ${file}`);
   }
 }
 
