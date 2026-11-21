@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-label="BECBarrier — Verify the sender. Protect the payment. Preserve the evidence.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081A2D"/><stop offset="1" stop-color="#12263B"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="260" rx="18" fill="url(#bg)"/>
+  <g opacity="0.14" stroke="#2BD9C6" fill="none" stroke-width="1">
+    <path d="M0 210 H960"/><path d="M0 170 H960"/><path d="M0 130 H960"/>
+  </g>
+  <g transform="translate(52,74) scale(2.35)">
+    <path d="M24 3 6 9v13c0 10.6 7.3 19.7 18 23 10.7-3.3 18-12.4 18-23V9L24 3Z" fill="#12263B"/>
+    <path d="M24 8.5 10.5 13.5v8.8c0 8.2 5.5 15.4 13.5 18.2 8-2.8 13.5-10 13.5-18.2v-8.8L24 8.5Z" fill="none" stroke="#2BD9C6" stroke-width="1.4" opacity="0.55"/>
+    <path d="M13 24h7l3.5-6 4 11 3-5h4.5" fill="none" stroke="#12B8A6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="176" y="118" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="56" font-weight="700" fill="#FFFFFF" letter-spacing="-1">BECBarrier</text>
+  <text x="178" y="152" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="17" fill="#2BD9C6" letter-spacing="0.5">ENTERPRISE BEC DEFENSE · SUPPLIER PAYMENT INTEGRITY</text>
+  <text x="178" y="186" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="15" fill="#9FB3C8">Verify the sender. Protect the payment. Preserve the evidence.</text>
+  <g transform="translate(700,86)">
+    <rect x="0" y="0" width="212" height="88" rx="10" fill="#0C2138" stroke="#23466A"/>
+    <text x="16" y="26" font-family="monospace" font-size="12" fill="#4096E8">state: ON_HOLD</text>
+    <text x="16" y="46" font-family="monospace" font-size="12" fill="#F59E0B">callback: verified ✓</text>
+    <text x="16" y="66" font-family="monospace" font-size="12" fill="#10B981">approvals: 2 / 2 ✓</text>
+  </g>
+</svg>

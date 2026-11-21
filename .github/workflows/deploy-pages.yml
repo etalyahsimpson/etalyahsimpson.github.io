@@ -1,0 +1,92 @@
+name: Deploy portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Least privilege: the build job only reads the repository; only the deploy
+# job can write to Pages, using the OIDC id token.
+permissions:
+  contents: read
+
+# One deployment at a time per ref; never cancel an in-progress deployment.
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  REPO_OWNER: ${{ github.repository_owner }}
+  REPO_NAME: ${{ github.event.repository.name }}
+  GITHUB_REPOSITORY: ${{ github.repository }}
+  GITHUB_SHA: ${{ github.sha }}
+
+jobs:
+  build:
+    name: Build and verify static export
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Content and privacy verification
+        run: npm run test
+
+      - name: Secret scan (tracked files)
+        run: |
+          if git grep -nIE '(ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AKIA[0-9A-Z]{16})' -- . ':!package-lock.json'; then
+            echo "::error::Potential secret committed to the repository"
+            exit 1
+          fi
+          echo "Secret scan clean."
+
+      - name: Build static export (user-site root, empty base path)
+        run: npm run build:static
+
+      - name: Verify exported assets, links, metadata, and privacy
+        run: npm run verify:export
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: E2E tests against the static export
+        run: npm run test:e2e:static
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

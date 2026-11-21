@@ -1,0 +1,313 @@
+@import "tailwindcss";
+
+/*
+ * Etalyah Simpson portfolio design system.
+ * Signature: charcoal-plum DARK default with refined purple accents, and a
+ * user-selectable mid-gray LIGHT mode (never white-dominant). All values are
+ * documented in docs/DESIGN_SYSTEM.md.
+ *
+ * Theme contract:
+ *  - <html data-theme="dark"> is the server-rendered default for every
+ *    first visit, regardless of OS color preference.
+ *  - An explicit visitor choice persists in localStorage ("etalyah-theme")
+ *    and is restored by a pre-paint bootstrap script in layout.tsx.
+ *  - The token names below are the single source of truth; Tailwind colors
+ *    in @theme inline reference them, so every component follows the active
+ *    theme automatically.
+ */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --page: #17131f; /* deep plum-slate canvas */
+  --section: #1e1928; /* alternating section background */
+  --surface: #262033; /* card body */
+  --surface-raised: #30283e; /* elevated/interactable layer */
+  --surface-soft: #211b2c; /* quiet panel/skill group */
+
+  /* Purple identity */
+  --primary: #b48be8;
+  --primary-strong: #cbacf7;
+  --primary-soft: #3d2a54;
+
+  /* Text and lines */
+  --text: #f3eff9;
+  --text-muted: #c8bfd4;
+  --border: #50425f;
+
+  /* Content on primary fills: dark ink reads on the light lavender */
+  --on-primary: #241833;
+
+  /* State */
+  --focus: #e4c6ff;
+  --success: #74d3af;
+
+  /* Elevation: deeper, purple-tinted shadows on dark surfaces */
+  --shadow-card: 0 1px 2px rgba(5, 2, 10, 0.5), 0 10px 28px rgba(5, 2, 10, 0.36);
+  --shadow-card-hover: 0 2px 6px rgba(5, 2, 10, 0.55), 0 18px 44px rgba(5, 2, 10, 0.48);
+  --shadow-pop: 0 4px 10px rgba(5, 2, 10, 0.6), 0 24px 56px rgba(5, 2, 10, 0.58);
+
+  /* Ambient decoration */
+  --glow-soft: rgba(180, 139, 232, 0.16);
+  --glow-strong: rgba(180, 139, 232, 0.26);
+
+  /* Type */
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+    monospace;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Surfaces: intermediate cool gray, deliberately not white */
+  --page: #c8c5d0;
+  --section: #d0cdd7;
+  --surface: #dad7e1;
+  --surface-raised: #e4e1e9;
+  --surface-soft: #d3cdde;
+
+  /* Purple identity */
+  --primary: #693a96;
+  --primary-strong: #502775;
+  --primary-soft: #c7b8d9;
+
+  /* Text and lines */
+  --text: #292332;
+  --text-muted: #51485f;
+  --border: #aaa2b8;
+
+  --on-primary: #ffffff;
+
+  /* State */
+  --focus: #542589;
+  --success: #236b4e;
+
+  /* Elevation */
+  --shadow-card: 0 1px 2px rgba(41, 35, 50, 0.08), 0 8px 24px rgba(41, 35, 50, 0.1);
+  --shadow-card-hover: 0 2px 4px rgba(41, 35, 50, 0.1), 0 14px 34px rgba(41, 35, 50, 0.16);
+  --shadow-pop: 0 4px 8px rgba(41, 35, 50, 0.12), 0 20px 48px rgba(41, 35, 50, 0.2);
+
+  /* Ambient decoration */
+  --glow-soft: rgba(105, 58, 150, 0.12);
+  --glow-strong: rgba(105, 58, 150, 0.2);
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-section: var(--section);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-soft);
+  --color-surface-raised: var(--surface-raised);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-soft: var(--primary-soft);
+  --color-ink: var(--text);
+  --color-ink-muted: var(--text-muted);
+  --color-line: var(--border);
+  --color-on-primary: var(--on-primary);
+  --color-focus: var(--focus);
+  --color-success: var(--success);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --shadow-card: var(--shadow-card);
+  --shadow-card-hover: var(--shadow-card-hover);
+  --shadow-pop: var(--shadow-pop);
+
+  --radius-card: 1.25rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem; /* keep anchored headings clear of the sticky header */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: var(--page);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+::selection {
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Subtle custom scrollbar for long in-page lists */
+.scroll-slim {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.scroll-slim::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scroll-slim::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+.scroll-slim::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Editorial eyebrow label */
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--primary-strong);
+}
+
+/* Decorative dotted texture used behind hero + callout panels */
+.dot-grid {
+  background-image: radial-gradient(var(--border) 1.1px, transparent 1.1px);
+  background-size: 22px 22px;
+}
+
+/* Card lift on hover, respecting reduced motion via the media block above */
+.card-lift {
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: color-mix(in srgb, var(--primary) 38%, var(--border));
+}
+
+/* Ambient brand glow used sparingly behind hero and banner panels */
+.ambient-glow {
+  background: radial-gradient(closest-side, var(--glow-soft), transparent 72%);
+}
+
+/* ---------------------------------------------------------------------
+ * Technology badges: icon + label pills with a restrained purple halo,
+ * border lift, and a SINGLE subtle nudge on fine-pointer hover.
+ * ------------------------------------------------------------------- */
+@keyframes techBadgeNudge {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0);
+  }
+  26% {
+    transform: translate3d(-1px, 0, 0) rotate(-1.1deg);
+  }
+  57% {
+    transform: translate3d(1.5px, -0.5px, 0) rotate(1.1deg);
+  }
+  82% {
+    transform: translate3d(-0.5px, 0, 0) rotate(-0.4deg);
+  }
+}
+
+.technology-badge {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
+  color: var(--text);
+  border-radius: 0.7rem;
+  padding: 0.38rem 0.66rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-decoration: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.technology-badge::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -6px;
+  border-radius: inherit;
+  background: radial-gradient(circle, var(--glow-strong), transparent 72%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.technology-badge:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  box-shadow: 0 0 16px var(--glow-strong);
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .technology-badge:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 14px var(--glow-strong);
+    animation: techBadgeNudge 260ms ease-out 1;
+  }
+  .technology-badge:hover::before {
+    opacity: 1;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: reduce) {
+  .technology-badge:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 14px var(--glow-strong);
+  }
+  .technology-badge:hover::before {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .technology-badge,
+  .technology-badge::before {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Native disclosure styling for experience role details */
+details.role-details summary {
+  list-style: none;
+  cursor: pointer;
+}
+details.role-details summary::-webkit-details-marker {
+  display: none;
+}
+details.role-details summary .chevron {
+  transition: transform 200ms ease;
+}
+details.role-details[open] summary .chevron {
+  transform: rotate(180deg);
+}
+details.role-details[open] summary {
+  color: var(--primary-strong);
+}

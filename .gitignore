@@ -1,0 +1,24 @@
+# dependencies
+node_modules/
+
+# next.js build output
+.next/
+out/
+
+# testing
+playwright-report/
+test-results/
+
+# misc
+*.log
+.DS_Store
+*.tsbuildinfo
+
+# env files are never committed; only the placeholder example may exist
+.env
+.env.*
+!.env.example
+
+# local verification reports (regenerated on demand)
+scripts/verify-content-report.json
+scripts/verify-export-report.json
