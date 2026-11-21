@@ -9,7 +9,7 @@ export const SITE = {
   url: "https://etalyahsimpson.github.io/",
   tagline: "Agentic Coding · Software Engineering · AI Evaluation",
   description:
-    "Etalyah Simpson is a full-stack and AI engineer in Philadelphia, PA with 4+ years of experience building customer-facing applications, model-backed services, and evidence-based AI evaluation workflows.",
+    "I'm Etalyah Simpson, a full-stack and AI engineer in Philadelphia, PA with 4+ years of experience building customer-facing applications, model-backed services, and evidence-based AI evaluation workflows.",
   owner: "Etalyah Simpson",
   year: new Date().getFullYear(),
 } as const;

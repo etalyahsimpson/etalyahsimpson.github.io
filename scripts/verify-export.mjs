@@ -91,8 +91,9 @@ const rel = (p) => path.relative(ROOT, p);
 
 // Minimal HTML entity decoding for text extracted from raw HTML (titles,
 // descriptions). Attribute URL values are compared after decoding too.
-const entityMap = { "&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&apos;": "'", "&#39;": "'", "&nbsp;": " " };
-const decodeEntities = (value) => value.replace(/&(amp|lt|gt|quot|apos|#39|nbsp);/g, (m) => entityMap[m] ?? m);
+// Next.js encodes apostrophes in attribute values as &#x27;.
+const entityMap = { "&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&apos;": "'", "&#39;": "'", "&#x27;": "'", "&nbsp;": " " };
+const decodeEntities = (value) => value.replace(/&(amp|lt|gt|quot|apos|#39|#x27;?|nbsp);/gi, (m) => entityMap[m.toLowerCase()] ?? m);
 
 async function exists(p) {
   try { await fs.access(p); return true; } catch { return false; }
@@ -282,7 +283,7 @@ for (const htmlFile of htmlFiles) {
 const EXPECTED = {
   "index.html": {
     title: "Etalyah Simpson · Software Engineering, Agentic Coding & AI Evaluation",
-    description: "Etalyah Simpson is a full-stack and AI engineer",
+    description: "I'm Etalyah Simpson, a full-stack and AI engineer",
     canonical: `${ORIGIN}/`,
     ogImage: `${ORIGIN}/previews/etalyah-home.png`,
   },

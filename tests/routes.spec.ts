@@ -17,7 +17,7 @@ const ROUTES: { path: string; heading: RegExp }[] = [
   { path: "/roadmap/", heading: /Long-form initiatives/i },
   { path: "/education/", heading: /Formal education/i },
   { path: "/certifications/", heading: /Cloud architecture/i },
-  { path: "/contact/", heading: /Email is the way/i },
+  { path: "/contact/", heading: /Email is the best way/i },
 ];
 
 const consoleErrors: string[] = [];

@@ -13,7 +13,7 @@ export function ProjectsSection() {
           <SectionHeading
             eyebrow="Selected engineering projects"
             title="Three inspectable systems, built end to end"
-            description="Each project below is a public GitHub repository with source, tests, and CI. Case studies live on this site; repositories stay one click away."
+            description="Each project below is a public GitHub repository I built, with source, tests, and CI. Case studies live on this site; repositories stay one click away."
             id="projects-heading"
           />
           <a
@@ -21,7 +21,7 @@ export function ProjectsSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex min-h-11 items-center gap-2 rounded-full border border-line bg-surface px-5 py-2.5 text-sm font-semibold text-ink-muted transition-colors hover:border-primary/40 hover:text-primary-strong"
-            aria-label="Explore the full GitHub profile (opens in new tab)"
+            aria-label="Explore my full GitHub profile (opens in new tab)"
           >
             <GitHubIcon />
             GitHub profile

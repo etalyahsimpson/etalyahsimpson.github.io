@@ -7,7 +7,7 @@ import { education } from "@/content/education";
 export const metadata: Metadata = buildRouteMetadata({
   title: "Education",
   description:
-    "Etalyah Simpson's education: PhD student in Machine Learning and AI at Carnegie Mellon University (ongoing, research focus deep learning), MS in Software Engineering from Drexel University, BS from Temple University, AS from Community College of Philadelphia.",
+    "My education: PhD student in Machine Learning and AI at Carnegie Mellon University (ongoing, research focus deep learning), MS in Software Engineering from Drexel University, BS from Temple University, AS from Community College of Philadelphia.",
   path: "/education/",
   image: "/previews/etalyah-portfolio.png",
 });
@@ -18,7 +18,7 @@ export default function EducationPage() {
       <PageHero
         eyebrow="Education"
         title="Formal education, from Philadelphia to Pittsburgh"
-        description="An academic path through computer science and software engineering, now continuing as doctoral research in machine learning."
+        description="My academic path through computer science and software engineering, now continuing as my doctoral research in machine learning."
         breadcrumbs={[{ label: "Education" }]}
       />
 
@@ -71,7 +71,7 @@ export default function EducationPage() {
         </ol>
 
         <p className="mt-8 text-sm text-ink-muted">
-          The doctoral program is ongoing; no degree is claimed before it is awarded.
+          My doctoral program is ongoing; I claim no degree before it is awarded.
         </p>
       </Container>
     </>

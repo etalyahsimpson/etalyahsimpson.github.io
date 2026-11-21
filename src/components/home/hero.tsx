@@ -52,7 +52,7 @@ export function Hero() {
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button href="/projects/" size="lg">
-              View My Projects
+              View my projects
             </Button>
             <Button
               href={EXTERNAL_LINKS.githubProfile}
@@ -60,9 +60,9 @@ export function Hero() {
               size="lg"
               variant="outline"
               iconLeading={<GitHubIcon />}
-              ariaLabel="Explore Etalyah Simpson's GitHub profile (opens in new tab)"
+              ariaLabel="Explore my GitHub profile (opens in new tab)"
             >
-              Explore GitHub
+              Explore my GitHub
             </Button>
             <Button
               href={EXTERNAL_LINKS.gmailCompose}
@@ -70,9 +70,9 @@ export function Hero() {
               size="lg"
               variant="ghost"
               iconLeading={<GmailIcon className="h-[1.15em] w-[1.15em]" />}
-              ariaLabel="Compose an email to Etalyah Simpson in Gmail (opens in new tab)"
+              ariaLabel="Email me in Gmail (opens in new tab)"
             >
-              Email Etalyah
+              Email me
             </Button>
           </div>
 

@@ -13,7 +13,7 @@ export function RoadmapSection() {
         <SectionHeading
           eyebrow="Currently building · Coming soon"
           title="Larger initiatives on the planning board"
-          description="Beyond the three inspectable repositories above, these are independent long-form engineering initiatives at the planning stage. They are concept work, not shipped systems."
+          description="Beyond the three inspectable repositories above, I'm planning these independent long-form engineering initiatives. They are concept work, not shipped systems."
           id="roadmap-heading"
         />
 

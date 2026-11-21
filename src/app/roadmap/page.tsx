@@ -8,7 +8,7 @@ import { StatusPill } from "@/components/ui/chip";
 export const metadata: Metadata = buildRouteMetadata({
   title: "Roadmap: Planned Initiatives",
   description:
-    "Etalyah Simpson's planned long-form engineering initiatives: EnterpriseOps AI (secure enterprise knowledge and agent workflows), SupplyChain Intelligence (supplier risk and ML operations), and OpsFlow Enterprise (real-time business operations).",
+    "My planned long-form engineering initiatives: EnterpriseOps AI (secure enterprise knowledge and agent workflows), SupplyChain Intelligence (supplier risk and ML operations), and OpsFlow Enterprise (real-time business operations).",
   path: "/roadmap/",
   image: "/previews/etalyah-portfolio.png",
 });
@@ -19,7 +19,7 @@ export default function RoadmapPage() {
       <PageHero
         eyebrow="Currently building · Coming soon"
         title="Long-form initiatives at the planning stage"
-        description="These three initiatives are larger systems than the three published repositories. They are grounded concept work with clear engineering objectives: planned, not shipped, with no fabricated timelines or repository links."
+        description="I'm planning three initiatives larger than my three published repositories. They are grounded concept work with clear engineering objectives: planned, not shipped, with no fabricated timelines or repository links."
         breadcrumbs={[{ label: "Roadmap" }]}
       />
 
@@ -64,10 +64,10 @@ export default function RoadmapPage() {
         </div>
 
         <p className="mt-10 max-w-3xl text-sm leading-relaxed text-ink-muted">
-          The approximately 18-week horizon is an owner-provided prospective planning estimate
-          for each initiative, not a promised release date. As each initiative begins producing
-          real repositories, its card will graduate to the published projects section with
-          verified evidence, exactly like PolicyGuard AI, VendorLens AI, and BECBarrier.
+          The approximately 18-week horizon is my prospective planning estimate for each
+          initiative, not a promised release date. As each initiative begins producing real
+          repositories, its card will graduate to the published projects section with verified
+          evidence, exactly like PolicyGuard AI, VendorLens AI, and BECBarrier.
         </p>
       </Container>
     </>

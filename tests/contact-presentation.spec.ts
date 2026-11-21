@@ -3,9 +3,11 @@ import { test, expect } from "@playwright/test";
 /**
  * Contact presentation contract (owner-directed correction):
  *  - LinkedIn icon links ONLY to the owner-confirmed current profile,
- *    https://www.linkedin.com/in/etaly-queen/, with the exact accessible name.
+ *    https://www.linkedin.com/in/etaly-queen/, with a first-person
+ *    accessible name ("Connect with me on LinkedIn").
  *  - Gmail icon opens the pre-addressed Gmail compose view with the correct
- *    to= parameter, never the inbox or Google homepage.
+ *    to= parameter, never the inbox or Google homepage, and uses the
+ *    first-person accessible name ("Email me in Gmail").
  *  - No visible raw email address and no visible raw LinkedIn URL anywhere in
  *    rendered content (checked with rendered-text queries, not source grep).
  *  - The exact approved LinkedIn transition notice appears in both contact
@@ -19,8 +21,8 @@ const CURRENT_LINKEDIN = "https://www.linkedin.com/in/etaly-queen/";
 const GMAIL_COMPOSE = "https://mail.google.com/mail/?view=cm&fs=1&to=etalyahsimpson.tech%40gmail.com";
 const NOTICE =
   "My previous LinkedIn account is no longer accessible to me following an account issue and is no longer in use. Please connect through my current profile.";
-const GMAIL_LABEL = "Compose an email to Etalyah Simpson in Gmail (opens in new tab)";
-const LINKEDIN_LABEL = "Visit Etalyah Simpson's current LinkedIn profile (opens in new tab)";
+const GMAIL_LABEL = "Email me in Gmail (opens in new tab)";
+const LINKEDIN_LABEL = "Connect with me on LinkedIn (opens in new tab)";
 
 const ALL_ROUTES = [
   "/",

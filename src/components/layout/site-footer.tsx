@@ -20,7 +20,7 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-muted">
-              Full-stack and AI engineer building applications, model-backed services, and
+              I'm a full-stack and AI engineer building applications, model-backed services, and
               evidence-based AI evaluation workflows.
             </p>
             <p className="mt-4 text-xs font-medium uppercase tracking-[0.12em] text-ink-muted/80">
@@ -94,14 +94,14 @@ export function SiteFooter() {
           <div>
             <h2 className="text-xs font-bold uppercase tracking-[0.14em] text-ink">Contact</h2>
             <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-              Reach Etalyah by email or through her current LinkedIn profile.
+              Reach me by email or through my current LinkedIn profile.
             </p>
             <div className="mt-3 flex flex-wrap items-center gap-3">
               <a
                 href={EXTERNAL_LINKS.gmailCompose}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Compose an email to Etalyah Simpson in Gmail (opens in new tab)"
+                aria-label="Email me in Gmail (opens in new tab)"
                 className="inline-flex min-h-11 items-center gap-2 rounded-full border border-primary/25 bg-primary-soft px-4 py-2.5 text-sm font-semibold text-primary-strong transition-colors hover:bg-primary-soft/70"
               >
                 <GmailIcon className="h-4 w-4" />
@@ -111,7 +111,7 @@ export function SiteFooter() {
                 href={EXTERNAL_LINKS.linkedinProfile}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Visit Etalyah Simpson's current LinkedIn profile (opens in new tab)"
+                aria-label="Connect with me on LinkedIn (opens in new tab)"
                 className="inline-flex min-h-11 items-center gap-2 rounded-full border border-primary/25 bg-primary-soft px-4 py-2.5 text-sm font-semibold text-primary-strong transition-colors hover:bg-primary-soft/70"
               >
                 <LinkedInIcon className="h-4 w-4" />
@@ -123,8 +123,8 @@ export function SiteFooter() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {SITE.year} Etalyah Simpson. Portfolio content is authored work; project facts are
-            cited to their public repositories.
+            © {SITE.year} Etalyah Simpson. Portfolio content is my authored work; project facts
+            are cited to their public repositories.
           </p>
           <p className="font-medium tracking-[0.02em]">
             Built with Next.js, TypeScript, and Tailwind CSS.

@@ -8,7 +8,7 @@ import { TechnologyBadge } from "@/components/ui/technology-badge";
 export const metadata: Metadata = buildRouteMetadata({
   title: "Expertise & Skills",
   description:
-    "Etalyah Simpson's engineering skills grouped by purpose: languages, frontend, backend and APIs, AI and machine learning, AI evaluation, agentic development, testing, infrastructure, and CRM integrations.",
+    "My engineering skills grouped by purpose: languages, frontend, backend and APIs, AI and machine learning, AI evaluation, agentic development, testing, infrastructure, and CRM integrations.",
   path: "/skills/",
   image: "/previews/etalyah-portfolio.png",
 });
@@ -54,7 +54,7 @@ export default function SkillsPage() {
         <div className="mt-10 rounded-3xl border border-line bg-surface-muted/60 p-6 sm:p-8">
           <h2 className="text-base font-extrabold text-ink">How to read this page</h2>
           <p className="mt-3 max-w-3xl text-[0.9375rem] leading-relaxed text-ink-muted">
-            These groups describe capabilities from professional experience and formal study.
+            These groups describe capabilities from my professional experience and formal study.
             Project pages on this site list technologies independently, verified directly from
             each public repository's implementation, so a tool appearing here does not imply it
             appears in every project.

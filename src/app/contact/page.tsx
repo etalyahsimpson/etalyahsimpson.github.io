@@ -10,7 +10,7 @@ import { GitHubIcon, GmailIcon, LinkedInIcon } from "@/components/layout/es-mark
 export const metadata: Metadata = buildRouteMetadata({
   title: "Contact",
   description:
-    "Contact Etalyah Simpson for engineering opportunities, AI evaluation work, or questions about her projects. Reach her by email in Gmail or through her current LinkedIn profile. No phone number or contact form is published on this site.",
+    "Contact me for engineering opportunities, AI evaluation work, or questions about my projects. Reach me by email in Gmail or through my current LinkedIn profile. No phone number or contact form is published on this site.",
   path: "/contact/",
   image: "/previews/etalyah-portfolio.png",
 });
@@ -20,7 +20,7 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Email is the way to reach Etalyah"
+        title="Email is the best way to reach me"
         description="For engineering opportunities, collaboration on AI evaluation, or questions about any project on this site, send an email or connect through LinkedIn."
         breadcrumbs={[{ label: "Contact" }]}
       />
@@ -34,7 +34,7 @@ export default function ContactPage() {
                 Send an email
               </h2>
               <p className="mt-3 max-w-md text-[0.9375rem] leading-relaxed text-ink-muted">
-                Direct, personal, and answered by Etalyah herself. For anything about source
+                Direct and personal: I answer every message myself. For anything about source
                 code, the repositories below are the fastest path to an answer.
               </p>
               <div className="mt-7 flex flex-wrap items-center gap-4">
@@ -42,17 +42,17 @@ export default function ContactPage() {
                   href={EXTERNAL_LINKS.gmailCompose}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Compose an email to Etalyah Simpson in Gmail (opens in new tab)"
+                  aria-label="Email me in Gmail (opens in new tab)"
                   className="inline-flex min-h-12 items-center gap-2.5 rounded-full bg-primary px-6 py-3.5 text-[0.9375rem] font-bold text-on-primary shadow-[0_4px_14px_var(--glow-strong)] transition-colors hover:bg-primary-strong"
                 >
                   <GmailIcon className="h-[1.15em] w-[1.15em]" />
-                  Email Etalyah
+                  Email me
                 </a>
                 <a
                   href={EXTERNAL_LINKS.linkedinProfile}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Visit Etalyah Simpson's current LinkedIn profile (opens in new tab)"
+                  aria-label="Connect with me on LinkedIn (opens in new tab)"
                   className="inline-flex min-h-12 items-center gap-2.5 rounded-full border border-line bg-surface px-6 py-3.5 text-[0.9375rem] font-bold text-ink transition-colors hover:border-primary/40 hover:text-primary-strong"
                 >
                   <LinkedInIcon className="h-[1.15em] w-[1.15em]" />

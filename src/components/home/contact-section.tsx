@@ -22,8 +22,8 @@ export function ContactSection() {
           <div className="copy-deter relative max-w-2xl">
             <SectionHeading
               eyebrow="Contact"
-              title="Reach Etalyah by email"
-              description="For engineering opportunities, collaboration on AI evaluation, or questions about the projects on this site, email is the best way to start."
+              title="Reach me by email"
+              description="For engineering opportunities, collaboration on AI evaluation, or questions about the projects on this site, email is the best way to reach me."
               id="contact-heading"
             />
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -31,17 +31,17 @@ export function ContactSection() {
                 href={EXTERNAL_LINKS.gmailCompose}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Compose an email to Etalyah Simpson in Gmail (opens in new tab)"
+                aria-label="Email me in Gmail (opens in new tab)"
                 className="inline-flex min-h-12 items-center gap-2.5 rounded-full bg-primary px-6 py-3.5 text-[0.9375rem] font-bold text-on-primary shadow-[0_4px_14px_var(--glow-strong)] transition-colors hover:bg-primary-strong"
               >
                 <GmailIcon className="h-[1.15em] w-[1.15em]" />
-                Email Etalyah
+                Email me
               </a>
               <a
                 href={EXTERNAL_LINKS.linkedinProfile}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Visit Etalyah Simpson's current LinkedIn profile (opens in new tab)"
+                aria-label="Connect with me on LinkedIn (opens in new tab)"
                 className="inline-flex min-h-12 items-center gap-2.5 rounded-full border border-line bg-surface px-6 py-3.5 text-[0.9375rem] font-bold text-ink transition-colors hover:border-primary/40 hover:text-primary-strong"
               >
                 <LinkedInIcon className="h-[1.15em] w-[1.15em]" />
@@ -59,7 +59,7 @@ export function ContactSection() {
               {LINKEDIN_TRANSITION_NOTICE}
             </p>
             <p className="mt-6 text-sm text-ink-muted">
-              Source code for every project is public on{" "}
+              Source code for every project I've built is public on{" "}
               <a
                 href={EXTERNAL_LINKS.githubProfile}
                 target="_blank"

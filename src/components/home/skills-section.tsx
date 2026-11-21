@@ -13,7 +13,7 @@ export function SkillsSection() {
           <SectionHeading
             eyebrow="Expertise"
             title="Skills grouped by engineering purpose"
-            description="Capabilities drawn from professional work across product engineering, machine learning, and AI evaluation. Detailed groups with context live on the expertise page."
+            description="Capabilities I've built through professional work across product engineering, machine learning, and AI evaluation. Detailed groups with context live on the expertise page."
             id="expertise-heading"
           />
           <Link

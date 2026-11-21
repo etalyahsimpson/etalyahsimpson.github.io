@@ -14,7 +14,7 @@ import { TechnologyBadge } from "@/components/ui/technology-badge";
 export const metadata: Metadata = buildRouteMetadata({
   title: "About",
   description:
-    "Etalyah Simpson is a full-stack and AI engineer in Philadelphia, PA with 4+ years of experience across product engineering, machine learning systems, and evidence-based AI evaluation, now pursuing a PhD in Machine Learning and AI at Carnegie Mellon University.",
+    "I'm a full-stack and AI engineer in Philadelphia, PA with 4+ years of experience across product engineering, machine learning systems, and evidence-based AI evaluation, and I'm now pursuing a PhD in Machine Learning and AI at Carnegie Mellon University.",
   path: "/about/",
   image: "/previews/etalyah-portfolio.png",
   type: "profile",
@@ -80,7 +80,7 @@ export default function AboutPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 font-semibold text-primary-strong underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
-                      aria-label="Compose an email to Etalyah Simpson in Gmail (opens in new tab)"
+                      aria-label="Email me in Gmail (opens in new tab)"
                     >
                       <GmailIcon className="h-3.5 w-3.5" />
                       Gmail

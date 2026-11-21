@@ -26,7 +26,7 @@ export const experience: ExperienceRole[] = [
     arrangement: "Part-Time · Remote",
     current: true,
     summary:
-      "Building full-stack AI applications with model-backed features, RAG pipelines, tool-using agents, and evaluation-driven release quality.",
+      "I build full-stack AI applications with model-backed features, RAG pipelines, tool-using agents, and evaluation-driven release quality.",
     highlights: [
       "Build full-stack AI applications with Next.js, FastAPI, PostgreSQL, and Redis, exposing model-backed features through REST APIs with Pydantic request validation.",
       "Design retrieval-augmented generation pipelines with LangChain and Pinecone, grounding OpenAI and Anthropic API responses in company documents.",
@@ -54,7 +54,7 @@ export const experience: ExperienceRole[] = [
     arrangement: "Hybrid",
     current: false,
     summary:
-      "Built, trained, and served classical and neural models for NLP and entity understanding, with rigorous experiment tracking and evaluation.",
+      "I built, trained, and served classical and neural models for NLP and entity understanding, with rigorous experiment tracking and evaluation.",
     highlights: [
       "Built and trained classical and neural models with Python, scikit-learn, and PyTorch on structured and text datasets, using Pandas and NumPy for feature engineering and data cleaning.",
       "Fine-tuned Hugging Face Transformers models for NLP tasks such as text classification and named-entity recognition, and used OpenAI and Anthropic APIs for LLM-based extraction and summarization.",
@@ -83,7 +83,7 @@ export const experience: ExperienceRole[] = [
     arrangement: "Contract",
     current: false,
     summary:
-      "Delivered customer-facing web features, real-time order tracking, and background job processing for EV fleet charging systems.",
+      "I delivered customer-facing web features, real-time order tracking, and background job processing for EV fleet charging systems.",
     highlights: [
       "Built customer-facing web features with React, Next.js, TypeScript, and Tailwind CSS, using TanStack Query for server data and React Hook Form with Zod for validated forms.",
       "Developed REST APIs with FastAPI and Node.js/Express, validated requests with Pydantic, and implemented JWT/OAuth2 authentication and authorization.",
@@ -111,7 +111,7 @@ export const experience: ExperienceRole[] = [
     arrangement: "Hybrid",
     current: false,
     summary:
-      "Supported and extended the company's Salesforce Marketing Cloud CRM platform, its integrations, and its customer-facing surfaces.",
+      "I supported and extended the company's Salesforce Marketing Cloud CRM platform, its integrations, and its customer-facing surfaces.",
     highlights: [
       "Supported the development and maintenance of the company's customer relationship management platform, working with senior developers to build new features and keep existing ones running.",
       "Built and updated email templates, landing pages, and customer-facing components in Salesforce Marketing Cloud using HTML, CSS, JavaScript, and AMPscript.",

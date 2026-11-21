@@ -11,7 +11,7 @@ export function ExperienceSection() {
           <SectionHeading
             eyebrow="Experience"
             title="Professional roles, exact titles and dates"
-            description="Four roles across AI engineering, machine learning, and full-stack product work. The experience page carries the full scope for every role."
+            description="My four professional roles span AI engineering, machine learning, and full-stack product work. The experience page carries the full scope for each one."
             id="experience-heading"
           />
           <Link

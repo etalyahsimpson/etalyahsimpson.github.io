@@ -18,7 +18,7 @@ export const skillGroups: SkillGroup[] = [
     id: "languages",
     title: "Languages",
     context:
-      "Daily working languages across product code, data processing, and automation scripts.",
+      "The languages I work in daily across product code, data processing, and automation scripts.",
     skills: ["TypeScript", "JavaScript", "Python", "Java", "Apex", "SQL", "HTML", "CSS", "Bash"],
     homecard: true,
   },
@@ -26,7 +26,7 @@ export const skillGroups: SkillGroup[] = [
     id: "frontend",
     title: "Frontend",
     context:
-      "Component-driven interfaces with typed state management and validated forms.",
+      "Component-driven interfaces I build with typed state management and validated forms.",
     skills: [
       "React",
       "Next.js",
@@ -41,7 +41,7 @@ export const skillGroups: SkillGroup[] = [
     id: "backend",
     title: "Backend & APIs",
     context:
-      "Service boundaries with validated contracts, authentication, and asynchronous work.",
+      "Service boundaries I design with validated contracts, authentication, and asynchronous work.",
     skills: [
       "FastAPI",
       "Node.js",
@@ -59,7 +59,7 @@ export const skillGroups: SkillGroup[] = [
     id: "ai-ml",
     title: "AI & Machine Learning",
     context:
-      "Classical and neural modeling, retrieval pipelines, and production LLM integrations.",
+      "How I build classical and neural models, retrieval pipelines, and production LLM integrations.",
     skills: [
       "PyTorch",
       "scikit-learn",
@@ -79,7 +79,7 @@ export const skillGroups: SkillGroup[] = [
     id: "ai-evaluation",
     title: "AI Evaluation",
     context:
-      "Scoring accuracy, groundedness, and agent safety with reproducible regression evidence.",
+      "How I score accuracy, groundedness, and agent safety with reproducible regression evidence.",
     skills: [
       "Promptfoo",
       "DeepEval",
@@ -97,7 +97,7 @@ export const skillGroups: SkillGroup[] = [
     id: "agentic",
     title: "Agentic Development",
     context:
-      "Specifying, reviewing, and gating AI-generated code with test-based acceptance criteria.",
+      "How I specify, review, and gate AI-generated code with test-based acceptance criteria.",
     skills: [
       "Claude Code",
       "MCP",
@@ -110,14 +110,14 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "testing",
     title: "Testing",
-    context: "Unit, integration, and end-to-end coverage as a release gate, not an afterthought.",
+    context: "Unit, integration, and end-to-end coverage I treat as a release gate, not an afterthought.",
     skills: ["pytest", "Jest", "React Testing Library", "Playwright", "Postman"],
     homecard: false,
   },
   {
     id: "infrastructure",
     title: "Infrastructure & Data",
-    context: "Containerized deployment, cloud services, and operational data stores.",
+    context: "The deployment and data infrastructure I work with: containers, cloud services, and operational data stores.",
     skills: [
       "Git/GitHub",
       "Linux",
@@ -133,7 +133,7 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "crm",
     title: "CRM & Integrations",
-    context: "Enterprise marketing platform development and system-to-system data flows.",
+    context: "Enterprise marketing platform development and system-to-system data flows I've delivered.",
     skills: ["Salesforce Marketing Cloud", "AMPscript", "SOQL"],
     homecard: false,
   },

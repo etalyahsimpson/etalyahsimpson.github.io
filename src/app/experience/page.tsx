@@ -8,7 +8,7 @@ import { TechnologyBadge } from "@/components/ui/technology-badge";
 export const metadata: Metadata = buildRouteMetadata({
   title: "Work Experience",
   description:
-    "Etalyah Simpson's professional experience: Full-Stack / AI Engineer at 9series Inc, Machine Learning Engineer at Altana AI, Full-Stack Developer at InductEV and Hertz, with exact titles, dates, and arrangements.",
+    "My professional experience: Full-Stack / AI Engineer at 9series Inc, Machine Learning Engineer at Altana AI, Full-Stack Developer at InductEV and Hertz, with exact titles, dates, and arrangements.",
   path: "/experience/",
   image: "/previews/etalyah-experience.png",
 });
@@ -19,7 +19,7 @@ export default function ExperiencePage() {
       <PageHero
         eyebrow="Experience"
         title="Four roles, exact titles, honest scope"
-        description="A chronology of professional work across AI engineering, machine learning, and full-stack development. Expand any role for the responsibilities and technologies it actually involved."
+        description="A chronology of my professional work across AI engineering, machine learning, and full-stack development. Expand any role for the responsibilities and technologies it actually involved."
         breadcrumbs={[{ label: "Experience" }]}
       />
 
@@ -107,8 +107,8 @@ export default function ExperiencePage() {
         </ol>
 
         <p className="mt-8 text-sm text-ink-muted">
-          Titles, employers, arrangements, and dates above reflect the owner's current CV
-          exactly. Confidential work is summarized at the level its confidentiality permits.
+          Titles, employers, arrangements, and dates above reflect my current CV exactly. I
+          summarize confidential work at the level its confidentiality permits.
         </p>
       </Container>
     </>

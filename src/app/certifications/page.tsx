@@ -7,7 +7,7 @@ import { certifications } from "@/content/certifications";
 export const metadata: Metadata = buildRouteMetadata({
   title: "Certifications",
   description:
-    "Etalyah Simpson's certifications: AWS Certified Solutions Architect Associate (2025), Google Cloud Professional Machine Learning Engineer (2024), DeepLearning.AI Deep Learning Specialization, AWS Machine Learning Foundations, and Salesforce Marketing Cloud.",
+    "My certifications: AWS Certified Solutions Architect Associate (2025), Google Cloud Professional Machine Learning Engineer (2024), DeepLearning.AI Deep Learning Specialization, AWS Machine Learning Foundations, and Salesforce Marketing Cloud.",
   path: "/certifications/",
   image: "/previews/etalyah-portfolio.png",
 });
@@ -19,7 +19,7 @@ export default function CertificationsPage() {
       <PageHero
         eyebrow="Certifications"
         title="Cloud architecture, machine learning, and platform credentials"
-        description="Industry certifications earned between 2020 and 2025, spanning AWS architecture, Google Cloud machine learning, deep learning, and Salesforce Marketing Cloud."
+        description="Industry certifications I earned between 2020 and 2025, spanning AWS architecture, Google Cloud machine learning, deep learning, and Salesforce Marketing Cloud."
         breadcrumbs={[{ label: "Certifications" }]}
       />
 
@@ -44,9 +44,9 @@ export default function CertificationsPage() {
         </ul>
 
         <p className="mt-8 text-sm text-ink-muted">
-          Certification names and years are listed exactly as earned. No verification URLs or
-          credential identifiers are published because none were authorized for public display,
-          and no endorsement by the issuing organizations is implied.
+          I list certification names and years exactly as earned. I publish no verification URLs
+          or credential identifiers because none are authorized for public display, and no
+          endorsement by the issuing organizations is implied.
         </p>
       </Container>
     </>

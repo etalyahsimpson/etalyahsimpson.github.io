@@ -95,7 +95,7 @@ export function SiteHeader() {
             href={EXTERNAL_LINKS.githubProfile}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Etalyah Simpson on GitHub (opens in new tab)"
+            aria-label="Explore my GitHub profile (opens in new tab)"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface text-ink-muted transition-colors duration-150 hover:border-primary/40 hover:text-primary-strong"
           >
             <GitHubIcon className="h-[1.15rem] w-[1.15rem]" />
@@ -105,11 +105,11 @@ export function SiteHeader() {
             href={EXTERNAL_LINKS.gmailCompose}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Compose an email to Etalyah Simpson in Gmail (opens in new tab)"
+            aria-label="Email me in Gmail (opens in new tab)"
             className="hidden h-11 items-center gap-2 rounded-full bg-primary px-4.5 text-[0.8375rem] font-semibold text-on-primary transition-colors duration-150 hover:bg-primary-strong md:inline-flex"
           >
             <GmailIcon className="h-4 w-4" />
-            Email Etalyah
+            Email me
           </a>
 
           <button
@@ -162,11 +162,11 @@ export function SiteHeader() {
                 href={EXTERNAL_LINKS.gmailCompose}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Compose an email to Etalyah Simpson in Gmail (opens in new tab)"
+                aria-label="Email me in Gmail (opens in new tab)"
                 className="flex min-h-11 items-center gap-2 rounded-xl px-3.5 py-2.5 text-[0.9375rem] font-semibold text-primary-strong transition-colors hover:bg-primary-soft/70"
               >
                 <GmailIcon className="h-4 w-4" />
-                Email Etalyah
+                Email me
               </a>
             </li>
           </ul>

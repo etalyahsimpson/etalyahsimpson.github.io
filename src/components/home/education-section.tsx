@@ -11,7 +11,7 @@ export function EducationSection() {
         <SectionHeading
           eyebrow="Education & credentials"
           title="Continuous formal learning"
-          description="An ongoing PhD in Machine Learning and AI, a software engineering master's, and industry certifications across cloud architecture and machine learning."
+          description="My ongoing PhD in Machine Learning and AI, a software engineering master's, and industry certifications across cloud architecture and machine learning."
           id="education-heading"
         />
 
