@@ -45,7 +45,12 @@ test("every image on every route loads", async ({ page }) => {
     const images = page.locator("img");
     const count = await images.count();
     for (let i = 0; i < count; i += 1) {
-      const complete = await images.nth(i).evaluate((img) => { const image = img as HTMLImageElement; return image.complete && image.naturalWidth > 0; });
+      const image = images.nth(i);
+      // Lazy-loaded images below the fold only load once scrolled into
+      // view; scroll each image into view and wait for its decode.
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate((el) => (el as HTMLImageElement).decode().catch(() => undefined));
+      const complete = await image.evaluate((img) => { const image = img as HTMLImageElement; return image.complete && image.naturalWidth > 0; });
       expect(complete, `broken image on ${route.path} at index ${i}`).toBe(true);
     }
   }

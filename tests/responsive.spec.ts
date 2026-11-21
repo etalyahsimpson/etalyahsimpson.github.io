@@ -55,8 +55,25 @@ test("mobile menu opens, navigates, and closes on Escape", async ({ page }) => {
 
 test("sticky header never covers anchored section headings", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
-  await page.goto("/");
-  await page.locator("#projects").scrollIntoViewIfNeeded();
-  const headingBox = await page.locator("#projects").boundingBox();
-  expect(headingBox?.y ?? 0).toBeGreaterThanOrEqual(0);
+  await page.goto("/#projects", { waitUntil: "load" });
+  // The browser performs the fragment scroll (respecting the site's
+  // scroll-padding-top). Wait in-page until the scroll has started and the
+  // smooth-scroll animation has settled (scrollY stops changing).
+  const settledScrollY = await page.evaluate(async () => {
+    const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+    let last = -1;
+    for (let i = 0; i < 25; i += 1) {
+      const y = window.scrollY;
+      if (y > 0 && y === last) return y;
+      last = y;
+      await sleep(200);
+    }
+    return window.scrollY;
+  });
+  expect(settledScrollY, "fragment navigation did not scroll to the section").toBeGreaterThan(0);
+  // The anchored section heading must sit fully below the sticky header.
+  const headerBox = await page.locator("header").boundingBox();
+  const sectionBox = await page.locator("#projects").boundingBox();
+  const headerBottom = (headerBox?.y ?? 0) + (headerBox?.height ?? 0);
+  expect((sectionBox?.y ?? -1) - headerBottom, "anchored heading is covered by the sticky header").toBeGreaterThanOrEqual(0);
 });

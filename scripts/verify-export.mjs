@@ -87,6 +87,11 @@ const localPathFor = (urlInfo, htmlFile) => {
 
 const rel = (p) => path.relative(ROOT, p);
 
+// Minimal HTML entity decoding for text extracted from raw HTML (titles,
+// descriptions). Attribute URL values are compared after decoding too.
+const entityMap = { "&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&apos;": "'", "&#39;": "'", "&nbsp;": " " };
+const decodeEntities = (value) => value.replace(/&(amp|lt|gt|quot|apos|#39|nbsp);/g, (m) => entityMap[m] ?? m);
+
 async function exists(p) {
   try { await fs.access(p); return true; } catch { return false; }
 }
@@ -180,33 +185,53 @@ const PHONE_LIKE = /(?:\+\s*1[\s.-]?)?\(?\b[2-9]\d{2}\)?[\s.-]?\d{3}[\s.-]?\d{4}
 const EM_DASH_CHAR = "\u2014";
 const EM_DASH_ENTITY = /&mdash;|&#8212;|&#x2014;/i;
 
-const ATTR_VALUE = /(src|href|poster|content)\s*=\s*"([^"]*)"/g;
+const ATTR_VALUE = /(src|href|poster)\s*=\s*"([^"]*)"/g;
 
 for (const htmlFile of htmlFiles) {
   const html = await fs.readFile(htmlFile, "utf8");
   const routeRel = rel(htmlFile);
 
-  // strip <script> and <style> blocks for text-level checks; scan scripts separately for contact schemes
-  const textOnly = html.replace(/<script[\s\S]*?<\/script>/gi, "").replace(/<style[\s\S]*?<\/style>/gi, "");
+  // strip <script> and <style> blocks for text-level checks; scan scripts separately for contact schemes.
+  // SVG path/points geometry (long numeric coordinate runs in d="..." and
+  // points="...") is machine data, not copy: strip it so phone scanning never
+  // mistakes bezier coordinates for telephone numbers. Visible SVG <text>
+  // content and every other text node remain fully scanned.
+  const textOnly = html
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/\bd\s*=\s*"[^"]*"/gi, "")
+    .replace(/\bpoints\s*=\s*"[^"]*"/gi, "");
   if (textOnly.includes(EM_DASH_CHAR) || EM_DASH_ENTITY.test(textOnly)) fail(`em dash present in ${routeRel}`);
   if (PHONE_LIKE.test(textOnly)) fail(`phone-like string in ${routeRel}`);
   if (/tel:|sms:|wa\.me|api\.whatsapp\.com|whatsapp:/i.test(html)) fail(`forbidden contact scheme in ${routeRel}`);
   if (/View CV|Open Résumé|Download Résumé|Download CV|download-cv|resume\.pdf|cv\.pdf/i.test(html)) fail(`CV access control present in ${routeRel}`);
 
-  // collect local URLs
+  // collect local URLs. Only src/href/poster are URL-bearing attributes;
+  // meta content="..." values (card types, dimensions, titles) are NOT URLs.
   const refs = new Set();
   for (const match of html.matchAll(ATTR_VALUE)) {
     const value = match[2];
     if (!value) continue;
-    // srcset: multiple URLs
-    if (/\.srcset|imagesrcset/i.test(match[1])) continue;
-    refs.add(value);
+    refs.add(decodeEntities(value));
   }
   for (const match of html.matchAll(/(?:srcset|imagesrcset)\s*=\s*"([^"]*)"/g)) {
     for (const candidate of match[1].split(",")) {
       const url = candidate.trim().split(/\s+/)[0];
-      if (url) refs.add(url);
+      if (url) refs.add(decodeEntities(url));
     }
+  }
+
+  // Social preview images: absolute og:image / twitter:image URLs must point
+  // at real files inside this export (same-origin only).
+  for (const match of html.matchAll(/<meta[^>]+(?:property|name)=["'](?:og:image|og:image:secure_url|twitter:image|twitter:image:src)["'][^>]*>/gi)) {
+    const content = match[0].match(/content=["']([^"']*)["']/i)?.[1];
+    if (!content) continue;
+    let url;
+    try { url = new URL(content, ORIGIN); } catch { fail(`invalid social preview URL in ${routeRel}: ${content}`); continue; }
+    if (url.origin !== ORIGIN) continue;
+    const fsPath = path.normalize(path.join(OUT, decodeURIComponent(url.pathname)));
+    if (!fsPath.startsWith(OUT)) { fail(`social preview path traversal in ${routeRel}: ${content}`); continue; }
+    if (!(await exists(fsPath))) fail(`social preview image missing in ${routeRel}: ${content}`);
   }
 
   for (const ref of refs) {
@@ -220,8 +245,8 @@ for (const htmlFile of htmlFiles) {
       stats.localAssetsChecked += 1;
     }
 
-    // internal link: must be a real exported path or carry an in-page anchor
-    if (resolved.kind === "root" && (resolved.value === "/" || resolved.value.startsWith("/") && !path.extname(stripUrl(ref)) === false)) {
+    // internal link to another exported document (no file extension = route)
+    if (resolved.kind === "root" && !path.extname(stripUrl(ref))) {
       stats.internalLinksChecked += 1;
     }
     const raw = ref;
@@ -290,7 +315,7 @@ const metaOf = (html, name) => {
   const tag = html.match(re)?.[0];
   if (!tag) return null;
   const content = tag.match(/content=["']([^"']*)["']/i);
-  return content ? content[1] : null;
+  return content ? decodeEntities(content[1]) : null;
 };
 
 const uniqueTitles = new Set();
@@ -299,6 +324,7 @@ for (const [route, expected] of Object.entries(EXPECTED)) {
   if (!(await exists(file))) { fail(`metadata check skipped, file missing: ${route}`); continue; }
   const html = await fs.readFile(file, "utf8");
   const title = html.match(/<title>([^<]*)<\/title>/i)?.[1] ?? null;
+  const decodedTitle = title ? decodeEntities(title) : null;
   const description = metaOf(html, "description");
   const canonical = html.match(/<link[^>]+rel=["']canonical["'][^>]*>/i)?.[0]?.match(/href=["']([^"']*)["']/i)?.[1] ?? null;
   const ogTitle = metaOf(html, "og:title");
@@ -308,8 +334,8 @@ for (const [route, expected] of Object.entries(EXPECTED)) {
   const twitterCard = metaOf(html, "twitter:card");
   const twitterImage = metaOf(html, "twitter:image");
 
-  if (!title) fail(`missing <title> in ${route}`); else uniqueTitles.add(title);
-  if (expected.title && !title?.includes(expected.title)) fail(`unexpected title in ${route}: ${title}`);
+  if (!decodedTitle) fail(`missing <title> in ${route}`); else uniqueTitles.add(decodedTitle);
+  if (expected.title && !decodedTitle?.includes(expected.title)) fail(`unexpected title in ${route}: ${decodedTitle}`);
   if (!description) fail(`missing meta description in ${route}`);
   else if (expected.description && !description.toLowerCase().includes(expected.description.toLowerCase())) fail(`description mismatch in ${route}`);
   if (!canonical) fail(`missing canonical in ${route}`);
