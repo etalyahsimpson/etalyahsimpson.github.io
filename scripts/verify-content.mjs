@@ -5,7 +5,8 @@
  * Gates (each failure blocks the release):
  *  1. Authored copy contains no em dash (U+2014 / &mdash; / &#8212; / &#x2014;).
  *  2. No phone-like strings, tel:/sms: links, WhatsApp/messenger integrations,
- *     or LinkedIn contact links anywhere in authored source or public assets.
+ *     or LinkedIn profile links other than the owner-approved current profile
+ *     (linkedin.com/in/etaly-queen/) anywhere in authored source or public assets.
  *  3. No CV/résumé artifacts (docx/pdf/pages) anywhere in the repository tree.
  *  4. Every referenced local asset exists in public/.
  *  5. Every route in the site route map has a matching app-router page.
@@ -83,7 +84,10 @@ const sourceFiles = (await walk(path.join(ROOT, "src"), (f) => textExtensions.te
 const EM_DASH = /\u2014|&mdash;|&#8212;|&#x2014;/i;
 // Generic NANP-like phone pattern (never the owner's actual number).
 const PHONE_LIKE = /(?:\+\s*1[\s.-]?)?\(?\b[2-9]\d{2}\)?[\s.-]?\d{3}[\s.-]?\d{4}\b/;
-const FORBIDDEN_CONTACT = /tel:|sms:|wa\.me|api\.whatsapp\.com|whatsapp:|messenger\.com|linkedin\.com\/in\/|shrinke\.me|calendly\.com/i;
+// The owner-confirmed CURRENT LinkedIn profile is the ONLY permitted LinkedIn
+// destination (owner correction supersedes earlier prompts); every other
+// profile path is treated as a forbidden former-profile reference.
+const FORBIDDEN_CONTACT = /tel:|sms:|wa\.me|api\.whatsapp\.com|whatsapp:|messenger\.com|linkedin\.com\/in\/(?!etaly-queen\/)|shrinke\.me|calendly\.com/i;
 const CV_ARTIFACT_NAME = /(^|[\/_-])(cv|resume|curriculum[\s_-]vitae)([\/_.-]|$)/i;
 
 for (const file of sourceFiles) {
@@ -232,7 +236,7 @@ if (!report.passed) {
   process.exit(1);
 }
 console.log(`verify-content: PASSED`);
-console.log(`  em dash: none | phone-like: none | forbidden contact: none | CV artifacts: none`);
+console.log(`  em dash: none | phone-like: none | forbidden contact: none (only the approved LinkedIn profile) | CV artifacts: none`);
 console.log(`  assets referenced: ${assetRefs.size}, all present`);
 console.log(`  authentic project visuals: ${Object.values(AUTHENTIC_VISUALS).flat().length} verified`);
 console.log(`  routes: ${ROUTES.length} verified | project slugs: ${slugs.join(", ")} | portraits: ${portraitFiles.length} (as authorized)`);

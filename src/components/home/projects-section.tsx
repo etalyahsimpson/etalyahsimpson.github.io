@@ -8,7 +8,7 @@ import { EXTERNAL_LINKS } from "@/content/site";
 export function ProjectsSection() {
   return (
     <section id="projects" aria-labelledby="projects-heading" className="scroll-mt-24 bg-section">
-      <div className="mx-auto w-full max-w-[1180px] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+      <div className="copy-deter mx-auto w-full max-w-[1180px] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
             eyebrow="Selected engineering projects"

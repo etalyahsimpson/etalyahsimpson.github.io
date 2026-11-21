@@ -12,7 +12,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 export function AboutSection() {
   return (
     <section id="about" aria-labelledby="about-heading" className="scroll-mt-24 bg-section">
-      <div className="mx-auto grid w-full max-w-[1180px] gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16 lg:px-8 lg:py-24">
+      <div className="copy-deter mx-auto grid w-full max-w-[1180px] gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16 lg:px-8 lg:py-24">
         <div className="relative order-2 mx-auto w-full max-w-[380px] lg:order-1 lg:max-w-none">
           <div
             aria-hidden="true"
@@ -26,6 +26,7 @@ export function AboutSection() {
                 width={aboutPortrait.width}
                 height={aboutPortrait.height}
                 loading="lazy"
+                draggable={false}
                 sizes="(min-width: 1024px) 400px, (min-width: 640px) 55vw, 92vw"
                 className="aspect-[3/4] w-full object-cover object-[center_28%]"
               />

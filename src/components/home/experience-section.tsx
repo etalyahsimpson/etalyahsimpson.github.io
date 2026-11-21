@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 export function ExperienceSection() {
   return (
     <section id="experience" aria-labelledby="experience-heading" className="scroll-mt-24">
-      <div className="mx-auto w-full max-w-[1180px] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+      <div className="copy-deter mx-auto w-full max-w-[1180px] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
             eyebrow="Experience"

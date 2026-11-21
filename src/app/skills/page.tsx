@@ -23,7 +23,7 @@ export default function SkillsPage() {
         breadcrumbs={[{ label: "Expertise" }]}
       />
 
-      <Container className="py-14 sm:py-16 lg:py-20">
+      <Container className="copy-deter py-14 sm:py-16 lg:py-20">
         <div className="grid gap-5 md:grid-cols-2">
           {skillGroups.map((group) => (
             <section

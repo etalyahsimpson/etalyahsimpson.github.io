@@ -14,10 +14,27 @@ export const SITE = {
   year: new Date().getFullYear(),
 } as const;
 
+/**
+ * Canonical external contact destinations. These are the ONLY approved
+ * outbound contact links; components must reference them from here rather
+ * than hardcoding URLs. Raw addresses are never rendered as visible text.
+ */
 export const EXTERNAL_LINKS = {
   githubProfile: "https://github.com/etalyahsimpson",
   email: "etalyahsimpson.tech@gmail.com",
+  /** Pre-addressed Gmail composition view (primary email action). */
+  gmailCompose:
+    "https://mail.google.com/mail/?view=cm&fs=1&to=etalyahsimpson.tech%40gmail.com",
+  /** Owner-confirmed CURRENT LinkedIn profile (the sole LinkedIn destination). */
+  linkedinProfile: "https://www.linkedin.com/in/etaly-queen/",
 } as const;
+
+/**
+ * Owner-approved public notice about the previous LinkedIn account.
+ * Exact wording; do not alter, and never include the former URL or handle.
+ */
+export const LINKEDIN_TRANSITION_NOTICE =
+  "My previous LinkedIn account is no longer accessible to me following an account issue and is no longer in use. Please connect through my current profile.";
 
 /** Top-level navigation. Every entry points to a real exported route. */
 export const NAV_ITEMS = [

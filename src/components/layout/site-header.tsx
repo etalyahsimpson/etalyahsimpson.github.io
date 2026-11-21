@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { NAV_ITEMS, EXTERNAL_LINKS } from "@/content/site";
-import { GitHubIcon } from "@/components/layout/es-mark";
+import { GitHubIcon, GmailIcon } from "@/components/layout/es-mark";
 import { PortraitMark } from "@/components/layout/portrait-mark";
 import { Container } from "@/components/layout/container";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
@@ -102,9 +102,13 @@ export function SiteHeader() {
           </a>
 
           <a
-            href={`mailto:${EXTERNAL_LINKS.email}`}
-            className="hidden h-11 items-center rounded-full bg-primary px-4.5 text-[0.8375rem] font-semibold text-on-primary transition-colors duration-150 hover:bg-primary-strong md:inline-flex"
+            href={EXTERNAL_LINKS.gmailCompose}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Compose an email to Etalyah Simpson in Gmail (opens in new tab)"
+            className="hidden h-11 items-center gap-2 rounded-full bg-primary px-4.5 text-[0.8375rem] font-semibold text-on-primary transition-colors duration-150 hover:bg-primary-strong md:inline-flex"
           >
+            <GmailIcon className="h-4 w-4" />
             Email Etalyah
           </a>
 
@@ -155,9 +159,13 @@ export function SiteHeader() {
             ))}
             <li>
               <a
-                href={`mailto:${EXTERNAL_LINKS.email}`}
-                className="flex min-h-11 items-center rounded-xl px-3.5 py-2.5 text-[0.9375rem] font-semibold text-primary-strong transition-colors hover:bg-primary-soft/70"
+                href={EXTERNAL_LINKS.gmailCompose}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Compose an email to Etalyah Simpson in Gmail (opens in new tab)"
+                className="flex min-h-11 items-center gap-2 rounded-xl px-3.5 py-2.5 text-[0.9375rem] font-semibold text-primary-strong transition-colors hover:bg-primary-soft/70"
               >
+                <GmailIcon className="h-4 w-4" />
                 Email Etalyah
               </a>
             </li>

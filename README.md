@@ -5,7 +5,7 @@ Philadelphia, PA working across agentic coding, software engineering, and AI eva
 
 - **Production site:** <https://etalyahsimpson.github.io/>
 - **GitHub profile:** <https://github.com/etalyahsimpson>
-- **Contact:** `etalyahsimpson.tech@gmail.com` (email is the only direct contact channel on this site)
+- **Contact:** Gmail compose icon (pre-addressed to `etalyahsimpson.tech@gmail.com`) plus the owner-confirmed current LinkedIn profile `https://www.linkedin.com/in/etaly-queen/`; the raw address is never displayed as visible text on the site
 
 ## What this repository contains
 
@@ -25,7 +25,7 @@ engineering projects, each linking to its public repository:
 | `/roadmap/` | Planned long-form initiatives |
 | `/education/` | Degrees and ongoing PhD status |
 | `/certifications/` | Certifications with years |
-| `/contact/` | Email-only contact |
+| `/contact/` | Contact via Gmail compose and the current LinkedIn profile |
 
 The complete route map with verification steps lives in [`docs/ROUTE_MAP.md`](docs/ROUTE_MAP.md).
 
@@ -74,8 +74,10 @@ flashes. Tokens, typography, and component behavior are documented in
 
 - Professional facts are authored from the owner's private CV; the CV itself is never
   published, committed, or offered to visitors in any form.
-- Email is the only direct-contact method on the site. No phone numbers, messaging
-  widgets, or contact forms exist anywhere in this repository.
+- Gmail (pre-addressed compose) is the direct-contact method on the site and the owner-confirmed
+  current LinkedIn profile is the only LinkedIn destination; raw addresses are never rendered as
+  visible text. No phone numbers, messaging widgets, or contact forms exist anywhere in this
+  repository. The previous LinkedIn account is not linked or named anywhere.
 - Exactly two owner-approved photographs are used (homepage hero and About); no other
   photos of people exist on the site.
 - Project technology badges and metrics are verified against the linked public
@@ -91,7 +93,7 @@ src/lib/            URL helpers and metadata factory
 src/fonts/          Bundled Manrope variable font (woff2)
 public/             Portraits (approved), project screenshots, brand art, previews
 scripts/            build-static.sh, serve-static.mjs, verify-content.mjs, verify-export.mjs
-tests/              Playwright suites (routes, privacy, copy links, responsive, metadata)
+tests/              Playwright suites (routes, privacy, contact presentation, copy links, copy deterrence, responsive, metadata)
 docs/               Architecture, design system, provenance, route map, QA docs
 ```
 

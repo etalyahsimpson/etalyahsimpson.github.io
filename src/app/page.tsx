@@ -35,7 +35,7 @@ function PersonJsonLd() {
       addressRegion: "PA",
       addressCountry: "US",
     },
-    sameAs: [EXTERNAL_LINKS.githubProfile],
+    sameAs: [EXTERNAL_LINKS.githubProfile, EXTERNAL_LINKS.linkedinProfile],
     knowsAbout: [
       "Agentic coding",
       "Software engineering",

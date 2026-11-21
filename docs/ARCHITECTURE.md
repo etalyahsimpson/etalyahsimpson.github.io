@@ -14,8 +14,8 @@ All page content flows from one typed content registry under `src/content/`:
 
 | Module | Purpose |
 | --- | --- |
-| `site.ts` | Canonical origin, navigation, full route list |
-| `profile.ts` | Identity, hero copy, About narrative (email is the only contact) |
+| `site.ts` | Canonical origin, navigation, route list, approved contact links (Gmail compose, current LinkedIn) and the LinkedIn transition notice |
+| `profile.ts` | Identity, hero copy, About narrative (Gmail compose is the direct contact; current LinkedIn profile is the approved professional link) |
 | `profile-media.ts` | The two approved portrait assets and their roles |
 | `experience.ts` | Roles with exact titles, dates, arrangements, scope |
 | `skills.ts` | Skill groups by engineering purpose |

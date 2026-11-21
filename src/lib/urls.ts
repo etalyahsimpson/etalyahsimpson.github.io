@@ -17,7 +17,7 @@ export function projectRepositoryUrl(project: PortfolioProject): string {
   return project.repositoryUrl;
 }
 
-/** Mailto link, the only authorized direct-contact channel. */
+/** Mailto link, the standards-based fallback for users unable to use Gmail. */
 export function emailLink(email: string): string {
   return `mailto:${email}`;
 }

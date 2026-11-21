@@ -4,13 +4,13 @@ import { Container } from "@/components/layout/container";
 import { buildRouteMetadata } from "@/lib/metadata";
 import { profile } from "@/content/profile";
 import { projects } from "@/content/projects";
-import { EXTERNAL_LINKS } from "@/content/site";
-import { GitHubIcon } from "@/components/layout/es-mark";
+import { EXTERNAL_LINKS, LINKEDIN_TRANSITION_NOTICE } from "@/content/site";
+import { GitHubIcon, GmailIcon, LinkedInIcon } from "@/components/layout/es-mark";
 
 export const metadata: Metadata = buildRouteMetadata({
   title: "Contact",
   description:
-    "Contact Etalyah Simpson by email at etalyahsimpson.tech@gmail.com for engineering opportunities, AI evaluation work, or questions about her projects. Email is the only direct contact channel on this site.",
+    "Contact Etalyah Simpson for engineering opportunities, AI evaluation work, or questions about her projects. Reach her by email in Gmail or through her current LinkedIn profile. No phone number or contact form is published on this site.",
   path: "/contact/",
   image: "/previews/etalyah-portfolio.png",
 });
@@ -21,11 +21,11 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Email is the way to reach Etalyah"
-        description="For engineering opportunities, collaboration on AI evaluation, or questions about any project on this site, send an email. It is the only direct contact channel published here."
+        description="For engineering opportunities, collaboration on AI evaluation, or questions about any project on this site, send an email or connect through LinkedIn."
         breadcrumbs={[{ label: "Contact" }]}
       />
 
-      <Container className="py-14 sm:py-16 lg:py-20">
+      <Container className="copy-deter py-14 sm:py-16 lg:py-20">
         <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="relative overflow-hidden rounded-[2rem] border border-primary/20 bg-primary-soft/70 p-8 sm:p-10">
             <div aria-hidden="true" className="dot-grid absolute inset-0 opacity-40" />
@@ -39,22 +39,36 @@ export default function ContactPage() {
               </p>
               <div className="mt-7 flex flex-wrap items-center gap-4">
                 <a
-                  href={`mailto:${profile.email}`}
+                  href={EXTERNAL_LINKS.gmailCompose}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Compose an email to Etalyah Simpson in Gmail (opens in new tab)"
                   className="inline-flex min-h-12 items-center gap-2.5 rounded-full bg-primary px-6 py-3.5 text-[0.9375rem] font-bold text-on-primary shadow-[0_4px_14px_var(--glow-strong)] transition-colors hover:bg-primary-strong"
                 >
-                  <svg viewBox="0 0 20 20" aria-hidden="true" className="h-[1.1em] w-[1.1em]" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2.5" y="4.5" width="15" height="11" rx="2.5" />
-                    <path d="M4 7l6 4.5L16 7" />
-                  </svg>
+                  <GmailIcon className="h-[1.15em] w-[1.15em]" />
                   Email Etalyah
                 </a>
                 <a
-                  href={`mailto:${profile.email}`}
-                  className="font-mono text-[0.9375rem] font-semibold text-primary-strong underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary"
+                  href={EXTERNAL_LINKS.linkedinProfile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit Etalyah Simpson's current LinkedIn profile (opens in new tab)"
+                  className="inline-flex min-h-12 items-center gap-2.5 rounded-full border border-line bg-surface px-6 py-3.5 text-[0.9375rem] font-bold text-ink transition-colors hover:border-primary/40 hover:text-primary-strong"
                 >
-                  {profile.email}
+                  <LinkedInIcon className="h-[1.15em] w-[1.15em]" />
+                  LinkedIn
+                </a>
+                <a
+                  href={`mailto:${profile.email}`}
+                  aria-label="Email in another app"
+                  className="text-sm font-semibold text-primary-strong underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary"
+                >
+                  Email in another app
                 </a>
               </div>
+              <p className="mt-6 max-w-md text-sm leading-relaxed text-ink-muted">
+                {LINKEDIN_TRANSITION_NOTICE}
+              </p>
             </div>
           </div>
 
@@ -101,7 +115,8 @@ export default function ContactPage() {
 
         <p className="mt-8 text-sm leading-relaxed text-ink-muted">
           This site intentionally publishes no phone number, messaging handle, or contact form.
-          GitHub links are professional evidence destinations, not messaging channels.
+          GitHub and LinkedIn links are professional evidence and profile destinations, not
+          messaging channels.
         </p>
       </Container>
     </>

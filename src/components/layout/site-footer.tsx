@@ -2,11 +2,11 @@ import Link from "next/link";
 import { NAV_ITEMS, EXTERNAL_LINKS, SITE } from "@/content/site";
 import { profile } from "@/content/profile";
 import { projects } from "@/content/projects";
-import { GitHubIcon } from "@/components/layout/es-mark";
+import { GitHubIcon, GmailIcon, LinkedInIcon } from "@/components/layout/es-mark";
 import { PortraitMark } from "@/components/layout/portrait-mark";
 import { Container } from "@/components/layout/container";
 
-/** Global footer: identity, sitemap, professional evidence links, email. */
+/** Global footer: identity, sitemap, professional evidence links, contact. */
 export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-line bg-section">
@@ -94,14 +94,30 @@ export function SiteFooter() {
           <div>
             <h2 className="text-xs font-bold uppercase tracking-[0.14em] text-ink">Contact</h2>
             <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-              Email is the only direct contact channel.
+              Reach Etalyah by email or through her current LinkedIn profile.
             </p>
-            <a
-              href={`mailto:${EXTERNAL_LINKS.email}`}
-              className="mt-3 inline-flex min-h-11 items-center rounded-full border border-primary/25 bg-primary-soft px-4 py-2.5 text-sm font-semibold text-primary-strong transition-colors hover:bg-primary-soft/70"
-            >
-              {EXTERNAL_LINKS.email}
-            </a>
+            <div className="mt-3 flex flex-wrap items-center gap-3">
+              <a
+                href={EXTERNAL_LINKS.gmailCompose}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Compose an email to Etalyah Simpson in Gmail (opens in new tab)"
+                className="inline-flex min-h-11 items-center gap-2 rounded-full border border-primary/25 bg-primary-soft px-4 py-2.5 text-sm font-semibold text-primary-strong transition-colors hover:bg-primary-soft/70"
+              >
+                <GmailIcon className="h-4 w-4" />
+                Gmail
+              </a>
+              <a
+                href={EXTERNAL_LINKS.linkedinProfile}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Etalyah Simpson's current LinkedIn profile (opens in new tab)"
+                className="inline-flex min-h-11 items-center gap-2 rounded-full border border-primary/25 bg-primary-soft px-4 py-2.5 text-sm font-semibold text-primary-strong transition-colors hover:bg-primary-soft/70"
+              >
+                <LinkedInIcon className="h-4 w-4" />
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
 

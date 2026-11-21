@@ -85,7 +85,7 @@ export function CopyLinkButton({ url, label }: { url: string; label: string }) {
         {state === "manual" ? (
           <span className="text-ink-muted">
             Automatic copy is unavailable in this browser. Copy it manually:{" "}
-            <code className="rounded-md bg-surface-muted px-2 py-0.5 font-mono text-[0.8125rem] text-primary-strong">
+            <code className="selectable rounded-md bg-surface-muted px-2 py-0.5 font-mono text-[0.8125rem] text-primary-strong">
               {url}
             </code>
           </span>

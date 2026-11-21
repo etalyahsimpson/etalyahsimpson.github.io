@@ -23,7 +23,7 @@ export default function RoadmapPage() {
         breadcrumbs={[{ label: "Roadmap" }]}
       />
 
-      <Container className="py-14 sm:py-16 lg:py-20">
+      <Container className="copy-deter py-14 sm:py-16 lg:py-20">
         <div className="grid gap-6 lg:grid-cols-3">
           {roadmapInitiatives.map((initiative) => (
             <article

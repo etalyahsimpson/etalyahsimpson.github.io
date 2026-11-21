@@ -39,11 +39,17 @@ explicitly does not initiate bank transfers or guarantee fraud prevention.
 
 ## Privacy contract
 
-- Email (`etalyahsimpson.tech@gmail.com`, `mailto:` only) is the single direct
-  personal contact channel on the site.
+- Gmail (pre-addressed compose view, `https://mail.google.com/mail/?view=cm&fs=1&to=...`)
+  is the single direct personal contact channel on the site; a standards-based
+  `mailto:` fallback labelled "Email in another app" is kept for users unable to
+  use Gmail. The raw address is never rendered as visible text.
+- The owner-confirmed CURRENT LinkedIn profile
+  (`https://www.linkedin.com/in/etaly-queen/`) is the only LinkedIn destination;
+  the previous LinkedIn account is never linked, named, or shown, and an
+  owner-approved transition notice appears in the contact areas.
 - No telephone number, `tel:`/`sms:` link, WhatsApp integration, chat widget,
-  messenger link, LinkedIn contact button, or third-party form exists anywhere in
-  this repository. Automated checks (`scripts/verify-content.mjs`,
+  messenger link, contact form, or third-party form exists anywhere in this
+  repository. Automated checks (`scripts/verify-content.mjs`,
   `scripts/verify-export.mjs`, `tests/privacy.spec.ts`) enforce this on source,
   export, and rendered pages.
 - The PhD is presented as ongoing study, never as a completed degree.

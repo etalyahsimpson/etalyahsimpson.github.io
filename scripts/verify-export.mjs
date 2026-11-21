@@ -57,7 +57,9 @@ const resolveLocal = (rawUrl) => {
   if (/^(mailto:|data:|blob:|javascript:)/i.test(u)) return null;
   if (/^(tel:|sms:)/i.test(u)) { fail(`forbidden contact scheme: ${u}`); return null; }
   if (/^([a-z][a-z0-9+.-]*):/i.test(u)) {
-    if (/wa\.me|api\.whatsapp\.com|whatsapp:|messenger\.com|linkedin\.com\/in\//i.test(u)) {
+    // The owner-confirmed current LinkedIn profile is the only permitted
+    // LinkedIn destination in the exported output.
+    if (/wa\.me|api\.whatsapp\.com|whatsapp:|messenger\.com|linkedin\.com\/in\/(?!etaly-queen\/)/i.test(u)) {
       fail(`forbidden contact link: ${u}`);
     }
     return null; // external http(s), mailto etc: skip local resolution
@@ -391,5 +393,5 @@ console.log(`  HTML files: ${stats.htmlFiles}`);
 console.log(`  required routes verified: ${stats.routesVerified}`);
 console.log(`  local asset references resolved: ${stats.localAssetsChecked}`);
 console.log(`  route metadata records verified: ${stats.metadataVerified}`);
-console.log(`  privacy: no tel/sms/whatsapp/phone/CV artifacts; email-only contact intact`);
+console.log(`  privacy: no tel/sms/whatsapp/phone/CV artifacts; Gmail + approved-LinkedIn contact intact`);
 console.log(`  punctuation: no em dashes in exported documents`);

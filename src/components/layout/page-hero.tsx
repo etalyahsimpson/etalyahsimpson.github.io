@@ -49,7 +49,7 @@ export function PageHero({ eyebrow, title, description, breadcrumbs, children }:
         aria-hidden="true"
         className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-primary-soft [mask-image:radial-gradient(closest-side,black,transparent)]"
       />
-      <Container className="relative py-10 sm:py-14">
+      <Container className="copy-deter relative py-10 sm:py-14">
         {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
         <p className="eyebrow mt-4">{eyebrow}</p>
         <h1 className="mt-2.5 max-w-3xl text-balance text-[clamp(2rem,4.2vw,3.4rem)] font-extrabold leading-[1.08] tracking-[-0.025em] text-ink">

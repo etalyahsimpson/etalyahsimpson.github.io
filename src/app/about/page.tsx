@@ -7,6 +7,8 @@ import { profile } from "@/content/profile";
 import { aboutPortrait } from "@/content/profile-media";
 import { experience } from "@/content/experience";
 import { education } from "@/content/education";
+import { EXTERNAL_LINKS } from "@/content/site";
+import { GmailIcon } from "@/components/layout/es-mark";
 import { TechnologyBadge } from "@/components/ui/technology-badge";
 
 export const metadata: Metadata = buildRouteMetadata({
@@ -28,7 +30,7 @@ export default function AboutPage() {
         breadcrumbs={[{ label: "About" }]}
       />
 
-      <Container className="py-14 sm:py-16 lg:py-20">
+      <Container className="copy-deter py-14 sm:py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div>
             <div className="relative mx-auto max-w-[360px]">
@@ -44,6 +46,7 @@ export default function AboutPage() {
                     width={aboutPortrait.width}
                     height={aboutPortrait.height}
                     loading="lazy"
+                    draggable={false}
                     sizes="(min-width: 1024px) 380px, 88vw"
                     className="aspect-[3/4] w-full object-cover object-[center_28%]"
                   />
@@ -73,10 +76,14 @@ export default function AboutPage() {
                   <dt className="font-semibold text-ink-muted">Contact</dt>
                   <dd className="text-right">
                     <a
-                      href={`mailto:${profile.email}`}
-                      className="font-semibold text-primary-strong underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+                      href={EXTERNAL_LINKS.gmailCompose}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 font-semibold text-primary-strong underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+                      aria-label="Compose an email to Etalyah Simpson in Gmail (opens in new tab)"
                     >
-                      Email
+                      <GmailIcon className="h-3.5 w-3.5" />
+                      Gmail
                     </a>
                   </dd>
                 </div>

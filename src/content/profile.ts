@@ -2,7 +2,9 @@
  * Professional identity, permitted public facts only.
  *
  * Privacy contract (see docs/CONTENT_PROVENANCE.md):
- * - Email is the ONLY public direct-contact channel.
+ * - Gmail (pre-addressed compose) is the ONLY public direct-contact channel;
+ *   the current LinkedIn profile is the sole approved professional profile
+ *   link. Raw addresses are never rendered as visible text.
  * - No phone number, messaging handle, or social-messaging profile is published.
  * - Facts are derived from the owner's private CV but re-authored as portfolio copy.
  */

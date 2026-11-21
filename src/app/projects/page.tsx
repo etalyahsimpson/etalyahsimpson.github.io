@@ -38,7 +38,7 @@ export default function ProjectsPage() {
         </div>
       </PageHero>
 
-      <Container className="py-14 sm:py-16 lg:py-20">
+      <Container className="copy-deter py-14 sm:py-16 lg:py-20">
         <div className="grid gap-6 lg:grid-cols-3">
           {featuredProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />

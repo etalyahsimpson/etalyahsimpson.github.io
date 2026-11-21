@@ -29,6 +29,7 @@ export function PortraitMark({ className }: { className?: string }) {
         width={avatarPortrait.width}
         height={avatarPortrait.height}
         loading="eager"
+        draggable={false}
         className="h-full w-full object-cover"
       />
     </span>

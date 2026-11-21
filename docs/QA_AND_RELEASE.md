@@ -6,7 +6,9 @@
 2. `npm run typecheck` - `tsc --noEmit` with strict settings.
 3. `npm run test` (`scripts/verify-content.mjs`) - source-level gates:
    - no em dash (U+2014, `&mdash;`, `&#8212;`, `&#x2014;`) in authored copy;
-   - no phone-like strings, `tel:`/`sms:`, WhatsApp/messenger/LinkedIn-in links;
+   - no phone-like strings, `tel:`/`sms:`, WhatsApp/messenger links, and no
+     LinkedIn-in links except the owner-approved current profile
+     (`linkedin.com/in/etaly-queen/`);
    - no CV/résumé artifacts (docx/pdf/pages) anywhere in the tree;
    - every referenced asset exists in `public/`;
    - every route has a matching `page.tsx`;

@@ -4,7 +4,7 @@ import { heroPortrait } from "@/content/profile-media";
 import { heroSkills } from "@/content/skills";
 import { EXTERNAL_LINKS } from "@/content/site";
 import { Button } from "@/components/ui/button";
-import { GitHubIcon } from "@/components/layout/es-mark";
+import { GitHubIcon, GmailIcon } from "@/components/layout/es-mark";
 import { TechnologyBadge } from "@/components/ui/technology-badge";
 
 /**
@@ -24,7 +24,7 @@ export function Hero() {
         <div className="absolute bottom-[-30%] left-[-10%] h-[26rem] w-[26rem] rounded-full bg-section [mask-image:radial-gradient(closest-side,black,transparent)]" />
       </div>
 
-      <div className="relative mx-auto grid w-full max-w-[1180px] gap-12 px-4 pb-16 pt-12 sm:px-6 sm:pt-16 lg:grid-cols-[1.06fr_0.94fr] lg:items-center lg:gap-14 lg:px-8 lg:pb-24 lg:pt-20">
+      <div className="copy-deter relative mx-auto grid w-full max-w-[1180px] gap-12 px-4 pb-16 pt-12 sm:px-6 sm:pt-16 lg:grid-cols-[1.06fr_0.94fr] lg:items-center lg:gap-14 lg:px-8 lg:pb-24 lg:pt-20">
         <div>
           <p className="eyebrow flex items-center gap-2.5">
             <span
@@ -64,7 +64,14 @@ export function Hero() {
             >
               Explore GitHub
             </Button>
-            <Button href={`mailto:${profile.email}`} size="lg" variant="ghost">
+            <Button
+              href={EXTERNAL_LINKS.gmailCompose}
+              external
+              size="lg"
+              variant="ghost"
+              iconLeading={<GmailIcon className="h-[1.15em] w-[1.15em]" />}
+              ariaLabel="Compose an email to Etalyah Simpson in Gmail (opens in new tab)"
+            >
               Email Etalyah
             </Button>
           </div>
@@ -122,6 +129,7 @@ export function Hero() {
                 width={heroPortrait.width}
                 height={heroPortrait.height}
                 priority={heroPortrait.priority}
+                draggable={false}
                 sizes="(min-width: 1024px) 460px, (min-width: 640px) 60vw, 92vw"
                 className="aspect-[4/5] w-full object-cover object-[center_30%]"
               />

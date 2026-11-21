@@ -53,6 +53,7 @@ export function ProjectCard({
               width={project.banner.width}
               height={project.banner.height}
               loading="lazy"
+              draggable={false}
               sizes="(min-width: 1024px) 372px, (min-width: 640px) 88vw, 92vw"
               style={{ aspectRatio: `${project.banner.width} / ${project.banner.height}` }}
               className="w-full object-cover"
@@ -81,6 +82,7 @@ export function ProjectCard({
                 width={project.overview.width}
                 height={project.overview.height}
                 loading="lazy"
+                draggable={false}
                 sizes="(min-width: 1024px) 372px, (min-width: 640px) 88vw, 92vw"
                 style={{ aspectRatio: overviewAspect }}
                 className="w-full object-cover object-top"

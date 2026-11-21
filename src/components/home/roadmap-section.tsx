@@ -9,7 +9,7 @@ import { StatusPill } from "@/components/ui/chip";
 export function RoadmapSection() {
   return (
     <section id="roadmap" aria-labelledby="roadmap-heading" className="scroll-mt-24 bg-surface-muted/60">
-      <div className="mx-auto w-full max-w-[1180px] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+      <div className="copy-deter mx-auto w-full max-w-[1180px] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <SectionHeading
           eyebrow="Currently building · Coming soon"
           title="Larger initiatives on the planning board"

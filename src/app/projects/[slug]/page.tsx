@@ -59,7 +59,7 @@ export default async function ProjectPage({
           aria-hidden="true"
           className="ambient-glow pointer-events-none absolute -right-32 -top-32 h-[26rem] w-[26rem]"
         />
-        <Container className="relative py-10 sm:py-14">
+        <Container className="copy-deter relative py-10 sm:py-14">
           <Breadcrumbs
             items={[{ label: "Projects", href: "/projects/" }, { label: project.title }]}
           />
@@ -97,7 +97,7 @@ export default async function ProjectPage({
         </Container>
       </div>
 
-      <Container className="py-12 sm:py-14 lg:py-16">
+      <Container className="copy-deter py-12 sm:py-14 lg:py-16">
         {/* Authentic branded banner: the project's own identity panel */}
         <figure>
           <div className="overflow-hidden rounded-[1.35rem] border border-line bg-surface-soft p-3 shadow-card">
@@ -108,6 +108,7 @@ export default async function ProjectPage({
                 width={project.banner.width}
                 height={project.banner.height}
                 loading="lazy"
+                draggable={false}
                 sizes="(min-width: 1180px) 1116px, 92vw"
                 style={{ aspectRatio: `${project.banner.width} / ${project.banner.height}` }}
                 className="w-full object-cover"
@@ -152,6 +153,7 @@ export default async function ProjectPage({
                   width={project.overview.width}
                   height={project.overview.height}
                   loading="lazy"
+                  draggable={false}
                   sizes="(min-width: 1180px) 1116px, 92vw"
                   className={cn(
                     "w-full object-contain",
@@ -249,6 +251,7 @@ export default async function ProjectPage({
                       width={shot.width}
                       height={shot.height}
                       loading="lazy"
+                      draggable={false}
                       sizes="(min-width: 1180px) 1116px, 92vw"
                       className="w-full object-cover object-top"
                     />

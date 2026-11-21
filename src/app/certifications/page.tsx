@@ -23,7 +23,7 @@ export default function CertificationsPage() {
         breadcrumbs={[{ label: "Certifications" }]}
       />
 
-      <Container className="py-14 sm:py-16 lg:py-20">
+      <Container className="copy-deter py-14 sm:py-16 lg:py-20">
         <ul className="grid gap-4 sm:grid-cols-2">
           {sorted.map((cert) => (
             <li

@@ -23,7 +23,7 @@ export default function ExperiencePage() {
         breadcrumbs={[{ label: "Experience" }]}
       />
 
-      <Container className="py-14 sm:py-16 lg:py-20">
+      <Container className="copy-deter py-14 sm:py-16 lg:py-20">
         <ol className="relative space-y-5 before:absolute before:bottom-8 before:left-[9px] before:top-8 before:w-px before:bg-line sm:before:left-[11px]">
           {experience.map((role) => (
             <li key={`${role.company}-${role.title}`} className="relative pl-8 sm:pl-12">
